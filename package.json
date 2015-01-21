@@ -13,7 +13,7 @@
     "html",
     "pdf",
     "markdown",
-    "grunt",
+    "grunt"
   ],
   "repository": {
     "type": "git",
