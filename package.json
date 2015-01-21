@@ -1,13 +1,20 @@
 {
   "name": "grunt-html-pdf",
+  "title": "Grunt HTML PDF",
   "description": "Grunt wrapper for the Node package html-pdf",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "homepage": "https://github.com/Max.Barry/grunt-html-pdf",
   "author": {
     "name": "Max Barry",
     "email": "maxbarrymail@gmail.com",
     "url": "http://mxbry.com"
   },
+  "keywords": [
+    "html",
+    "pdf",
+    "markdown",
+    "grunt",
+  ],
   "repository": {
     "type": "git",
     "url": "git://github.com/max-barry/grunt-html-pdf.git"
