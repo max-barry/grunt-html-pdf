@@ -51,11 +51,13 @@ module.exports = function(grunt) {
             pdf.create(src, options, function(err, buffer){
                 if (err) {
                     grunt.log.error("ERROR! Could not convert the source file to a PDF\n" + err);
+                    done(false);
                     return;
                 }
 
                 grunt.log.ok("Successfully created " + f.dest);
                 grunt.file.write(f.dest, buffer);
+                done(true);
             });
 
         });
