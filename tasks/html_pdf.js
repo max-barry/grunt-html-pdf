@@ -19,7 +19,8 @@ module.exports = function(grunt) {
         });
 
         var done = this.async(),
-            async = grunt.util.async;
+            async = grunt.util.async,
+            count = Object.keys(this.files).length;
 
         async.forEach(this.files, function(f) {
             /**
@@ -49,13 +50,22 @@ module.exports = function(grunt) {
             On callback write the file to the provided destination.
             */
             pdf.create(src, options, function(err, buffer){
+                count--;
+                
                 if (err) {
                     grunt.log.error("ERROR! Could not convert the source file to a PDF\n" + err);
+                    if (count === 0) {
+                        done(false);
+                    }
                     return;
                 }
 
                 grunt.log.ok("Successfully created " + f.dest);
                 grunt.file.write(f.dest, buffer);
+                
+                if (count === 0) {
+                    done(true);
+                }
             });
 
         });
