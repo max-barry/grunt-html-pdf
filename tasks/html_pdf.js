@@ -21,6 +21,7 @@ module.exports = function(grunt) {
         var done = this.async(),
             async = grunt.util.async;
 
+        var count = this.files.length;
         async.forEach(this.files, function(f) {
             /**
             Filter the list of provided files to check they exist. Warn if they don't.
@@ -54,8 +55,11 @@ module.exports = function(grunt) {
                     return;
                 }
 
-                grunt.log.ok("Successfully created " + f.dest);
                 grunt.file.write(f.dest, buffer);
+                grunt.log.ok("Successfully created " + f.dest);
+                if(--count === 0) {
+                    done();
+                }
             });
 
         });
