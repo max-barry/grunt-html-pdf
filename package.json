@@ -2,7 +2,7 @@
   "name": "grunt-html-pdf",
   "title": "Grunt HTML PDF",
   "description": "Grunt wrapper for the Node package html-pdf",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "homepage": "https://github.com/Max.Barry/grunt-html-pdf",
   "author": {
     "name": "Max Barry",
