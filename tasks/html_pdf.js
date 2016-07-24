@@ -25,7 +25,7 @@ module.exports = function(grunt) {
         async.forEach(this.files, function(f) {
             /**
             Filter the list of provided files to check they exist. Warn if they don't.
-            
+
             Push the source of each file to an array called 'src'.
 
             If multiple input files have been supplied for a single destination, concatenate them.
@@ -49,14 +49,13 @@ module.exports = function(grunt) {
 
             On callback write the file to the provided destination.
             */
-            pdf.create(src, options, function(err, buffer){
+            pdf.create(src, options).toFile(f.dest, function(err, res){
                 if (err) {
                     grunt.log.error("ERROR! Could not convert the source file to a PDF\n" + err);
                     done();
                     return;
                 }
 
-                grunt.file.write(f.dest, buffer);
                 grunt.log.ok("Successfully created " + f.dest);
                 if(--count === 0) {
                     done();
